@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
     }
 
     std::vector<double> results;
-    for (int i = 0; i < WARMUP; ++i) {
+    for (int i = 0; i < RUNS; ++i) {
         auto start = std::chrono::high_resolution_clock::now();
         func(A, B, C);
         auto end = std::chrono::high_resolution_clock::now();
