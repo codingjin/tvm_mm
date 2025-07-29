@@ -43,10 +43,10 @@ def generateFile(N, K, M, cpu_model, threadnum):
     database = meta_schedule.tune_tir(
         mod=mod,
         target=target,
-        max_trials_global=4,
-        num_trials_per_iter=1,
-        #max_trials_global=1000,
-        #num_trials_per_iter=64,
+        #max_trials_global=4,
+        #num_trials_per_iter=1,
+        max_trials_global=1000,
+        num_trials_per_iter=64,
         work_dir=work_dir,
     )
 

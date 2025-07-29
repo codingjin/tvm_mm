@@ -24,8 +24,8 @@ struct arguments {
     std::string CPUModel;
 };
 
-const int WARMUP = 2;//10;
-const int RUNS = 2;//100;
+const int WARMUP = 10;
+const int RUNS = 100;
 const double ERR = 0.1;
 
 void printResults(const std::string& name, const std::vector<double>& results, const double FLOPs)
