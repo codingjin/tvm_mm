@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <filesystem>
 #include <string>
-//#include <format>
 #include <random>
 #include <cmath>
 #include <fstream>
@@ -42,9 +41,9 @@ void printResults(const std::string& name, const std::vector<double>& results, c
 
     std::cout << "=== " << name << " ===" << std::endl;
     std::cout << "Took " << total << " seconds for " << RUNS << " runs. " << WARMUP << " warmups\n";
-    std::cout << avg << " Avg.\t(" << FLOPs/1.0e9/avg << " GFLOPS)\n";
-    std::cout << median << " Med.\t(" << FLOPs/1.0e9/median << " GFLOPS)\n";
-    std::cout << min << " Min.\t(" << FLOPs/1.0e9/min << " GFLOPS)\n";
+    std::cout << "Med " << median << "\tMed (" << FLOPs/1.0e9/median << " GFLOPS)\n";
+    std::cout << "Min " << min << "\tMax (" << FLOPs/1.0e9/min << " GFLOPS)\n";
+    std::cout << "Avg " << avg << "\tAvg (" << FLOPs/1.0e9/avg << " GFLOPS)\n";
     std::cout << dev << " Dev\n" << std::endl;
 }
 

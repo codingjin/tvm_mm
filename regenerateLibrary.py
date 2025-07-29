@@ -35,9 +35,6 @@ def generateFile(N, K, M, cpu_model, threadnum):
         mcpu = "core-avx2"
 
     work_dir = f"./{cpu_model}/{threadnum}"
-    if os.path.exists(work_dir):
-        shutil.rmtree(work_dir)
-    #os.mkdir(work_dir)
     Path(work_dir).mkdir(parents=True, exist_ok=True)
     target = f"llvm -num-cores {threadnum} -mcpu={mcpu} -mattr={attr}"
     database = meta_schedule.tune_tir(
