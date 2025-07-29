@@ -32,7 +32,7 @@ def generateFile(N, K, M, cpu_model, threadnum):
         mcpu = "znver2"
     else:
         attr = "+avx2"
-        mcpu = "native"
+        mcpu = "core-avx2"
 
     work_dir = f"./{cpu_model}/{threadnum}"
     if os.path.exists(work_dir):
