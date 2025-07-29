@@ -50,7 +50,10 @@ void printResults(const std::string& name, const std::vector<double>& results, c
 
 tvm::ffi::Function getTVMFunc(const struct arguments& args) {
   // Check to see if the library is there
-  std::string fileName = std::format("./{}/{}/{}_{}_{}.so", args.CPUModel, args.ThreadNum, args.N, args.K, args.M);
+  //std::string fileName = std::format("./{}/{}/{}_{}_{}.so", args.CPUModel, args.ThreadNum, args.N, args.K, args.M);
+  std::string fileName = "./" + args.CPUModel + "/" + std::to_string(args.ThreadNum) + "/" 
+                          + std::to_string(args.N) + "_" + std::to_string(args.K) + "_" 
+                          + std::to_string(args.M) + ".so";
 
   if (std::filesystem::exists(fileName)) {
     tvm::runtime::Module mod = tvm::runtime::Module::LoadFromFile(fileName);
@@ -62,8 +65,13 @@ tvm::ffi::Function getTVMFunc(const struct arguments& args) {
   }
 
   // Regenerate library
-  std::string regenerate_command = std::format("python3 ./regenerateLibrary.py --cpu {} --threadnum {} --N {} --K {} --M {}", 
-                                    args.CPUModel, args.ThreadNum, args.N, args.K, args.M);
+  //std::string regenerate_command = std::format("python3 ./regenerateLibrary.py --cpu {} --threadnum {} --N {} --K {} --M {}", 
+  //                                  args.CPUModel, args.ThreadNum, args.N, args.K, args.M);
+  std::string regenerate_command = "python3 ./regenerateLibrary.py --cpu " + args.CPUModel
+                                    + " --threadnum " + std::to_string(args.ThreadNum)
+                                    + " --N " + std::to_string(args.N)
+                                    + " --K " + std::to_string(args.K)
+                                    + " --M " + std::to_string(args.M);
   std::cout << "Regenerating library" << std::endl;
   std::cout << regenerate_command << std::endl;
   system(regenerate_command.c_str());
