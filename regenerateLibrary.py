@@ -26,7 +26,7 @@ def generateFile(N, K, M, cpu_model, threadnum):
         attr = "+avx512f"
         mcpu = "znver4"
     elif cpu_model == "rt":
-        arrt = "+avx2"
+        attr = "+avx2"
         mcpu = "znver2"
     else:
         attr = "+avx2"
