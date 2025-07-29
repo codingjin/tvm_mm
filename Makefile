@@ -2,6 +2,7 @@
 
 # ----- User settings -----
 TVM_HOME     := /home/jin/tvm
+#TVM_HOME     := /media/jin/nvme1n1p1/tvm
 
 # ----- Toolchain -----
 CXX          := g++
