@@ -25,6 +25,9 @@ def generateFile(N, K, M, cpu_model, threadnum):
     if cpu_model == "r9":
         attr = "+avx512f"
         mcpu = "znver4"
+    elif cpu_model == "rt":
+        arrt = "+avx2"
+        mcpu = "znver2"
     else:
         attr = "+avx2"
         mcpu = "native"
